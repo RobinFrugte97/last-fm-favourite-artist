@@ -19,13 +19,6 @@ const AlbumList: React.FC<Props> = () => {
                     albums: data.topalbums.album
                 })
             })
-            // fetchData(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=erra&api_key=${REACT_APP_API_KEY}&format=json&limit=12`)
-            // .then(data => {
-            //     // @ts-ignore
-            //     setArtistData({
-            //         image: data.artist.image[2]['#text']
-            //     })
-            // })
         }
         gatherData()
     }, [])
