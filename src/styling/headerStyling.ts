@@ -7,6 +7,10 @@ const ArtistImage = styled.img`
     width: 66%;
     min-width: 20rem;
     z-index: -2;
+
+    @media (max-width: 800px) {
+        width: 100%;
+    }
 `
 
 const ImageContainer = styled.div`
@@ -17,11 +21,12 @@ const ImageContainer = styled.div`
     width: 100vw;
     height: 100vh;
     z-index: -2;
+
+    
 `
 
 const FadeOverlay = styled.div`
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 5%, rgba(0,212,255,0) 100%);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,0) 100%);
     position: fixed;
     top: 0;
     right: 0;
@@ -29,6 +34,10 @@ const FadeOverlay = styled.div`
     height: 100vh;
     min-width: 20rem;
     z-index: -1;
+
+    @media (max-width: 800px) {
+        width: 100%;
+    }
 `
 
 export { ArtistImage, ImageContainer, FadeOverlay }

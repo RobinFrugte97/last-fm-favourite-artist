@@ -31,7 +31,11 @@ export interface IAlbum {
             track: Array<ITracks>
         }
         url: string
-        wiki: object
+        wiki: {
+            content: string
+            published: string
+            summary: string
+        }
     }
 }
 

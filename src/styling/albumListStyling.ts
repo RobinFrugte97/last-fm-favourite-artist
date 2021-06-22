@@ -6,9 +6,13 @@ const List = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1rem;
-    width: 100%;
-    padding: 3rem 0;
+    width: auto;
+    padding: 3rem 10%;
     background-color: white;
+
+    @media (max-width: 1280px) {
+        padding: 3rem 0;
+    }
 
     @media (max-width: 1000px) {
         grid-template-columns: 1fr 1fr;

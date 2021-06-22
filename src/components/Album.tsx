@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from "react-router-dom"
 
 import { IAlbum } from '../interface'
 import { fetchData } from '../helpers/functions'
-import { AlbumSection, AlbumImage, AlbumName, TrackList, Track, TrackNumber, TrackName, HomeLink } from '../styling/albumStyling'
+import { AlbumSection, AlbumImage, AlbumName, TrackList, Track, TrackNumber, TrackName, HomeLink, AlbumInfo, AlbumDate, InfoContainer, AlbumPlaycount } from '../styling/albumStyling'
 
 const { REACT_APP_API_KEY } = process.env
 
@@ -41,8 +40,15 @@ const Album: React.FC<any> = ({ match }) => {
             {albumData ?
                 <React.Fragment>
                     <AlbumSection>
-                        <AlbumImage src={albumData.image[4]['#text']} alt="" />
-                        <AlbumName>{albumData.name}</AlbumName>
+                        <AlbumInfo>
+                            <AlbumImage src={albumData.image[4]['#text']} alt="" />
+                            <InfoContainer>
+                                <AlbumName>{albumData.name}</AlbumName>
+                                <AlbumDate>{albumData.wiki.published}</AlbumDate>
+                                <AlbumPlaycount>Plays: {albumData.playcount}</AlbumPlaycount>
+                            </InfoContainer>
+
+                        </AlbumInfo>
                         <TrackList>
                             {albumData?.tracks?.track?.map((track, index) => {
                                 return (
