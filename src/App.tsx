@@ -1,24 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { IState as State } from './interface'
 
-function App() {
+import AlbumList from './components/AlbumList'
+
+const { REACT_APP_API_KEY } = process.env;
+
+
+
+const App = () => {
+
+  const [data, setData] = useState<State["artist"]>()
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const url = `http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=erra&api_key=${REACT_APP_API_KEY}&format=json`
+      const response = await fetch(url)
+      const artist = await response.json()
+      setData({
+        name: artist.topalbums["@attr"].artist,
+        albums: artist.topalbums.album
+      })
+    }
+    fetchData()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="Album">
+      {data ?
+        <React.Fragment>
+          <h1>{data.name}</h1>
+          <AlbumList artist={data} />
+        </React.Fragment>
+        :
+        <h1>Loading...</h1>
+      }
     </div>
   );
 }
