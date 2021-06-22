@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
 import { IAlbum } from '../interface'
-import { fetchData } from '../helpers/functions'
-import { AlbumSection, AlbumImage, AlbumName, TrackList, Track, TrackNumber, TrackName, HomeLink, AlbumInfo, AlbumDate, InfoContainer, AlbumPlaycount } from '../styling/albumStyling'
+import { fetchData, secondsToMinutes } from '../helpers/functions'
+import { AlbumSection, AlbumImage, AlbumName, TrackList, Track, TrackNumber, TrackName, HomeLink, AlbumInfo, AlbumDate, InfoContainer, AlbumPlaycount, TrackDuration } from '../styling/albumStyling'
 
 const { REACT_APP_API_KEY } = process.env
 
@@ -43,16 +43,16 @@ const Album: React.FC<any> = ({ match }) => {
                         <AlbumInfo>
                             <AlbumImage src={albumData.image[4]['#text']} alt="" />
                             <InfoContainer>
-                                <AlbumName>{albumData.name}</AlbumName>
-                                <AlbumDate>{albumData.wiki.published}</AlbumDate>
-                                <AlbumPlaycount>Plays: {albumData.playcount}</AlbumPlaycount>
+                                <AlbumName>{albumData?.name}</AlbumName>
+                                <AlbumDate>{albumData?.wiki?.published}</AlbumDate>
+                                <AlbumPlaycount>Plays: {albumData?.playcount}</AlbumPlaycount>
                             </InfoContainer>
 
                         </AlbumInfo>
                         <TrackList>
                             {albumData?.tracks?.track?.map((track, index) => {
                                 return (
-                                    <Track key={index}><TrackNumber>#{track['@attr'].rank}</TrackNumber><TrackName>{track.name}</TrackName></Track>
+                                    <Track key={index}><TrackNumber>#{track['@attr'].rank}</TrackNumber><TrackName><TrackDuration>{secondsToMinutes(track.duration)} - </TrackDuration>{track.name}</TrackName></Track>
                                 )
                             })}
                         </TrackList>

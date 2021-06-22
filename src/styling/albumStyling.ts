@@ -125,6 +125,11 @@ const TrackName = styled.h2`
 
 `
 
+const TrackDuration = styled.span`
+    font-weight: 100;
+    font-size: 1.2rem;
+`
+
 const HomeLink = styled(Link)`
     color: steelblue;
     font-weight: bold;
@@ -145,5 +150,6 @@ export {
     AlbumDate, 
     AlbumInfo, 
     InfoContainer, 
-    AlbumPlaycount 
+    AlbumPlaycount,
+    TrackDuration
 }
