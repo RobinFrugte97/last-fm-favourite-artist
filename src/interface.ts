@@ -1,11 +1,11 @@
-export interface IState {
+export type IState = {
     artist: {
         name: string
         albums: Array<IPropAlbum>
     }
 }
 
-interface IPropAlbum {
+type IPropAlbum = {
     artist: object
     image: Array<IPropAlbumImage>
     name: string
@@ -13,12 +13,12 @@ interface IPropAlbum {
     url: string
 }
 
-interface IPropAlbumImage {
+type IPropAlbumImage = {
     size: string
     '#text': string
 }
 
-export interface IAlbum {
+export type IAlbum = {
     album: {
         artist: string
         image: Array<IPropAlbumImage>
@@ -39,13 +39,31 @@ export interface IAlbum {
     }
 }
 
-interface ITracks {
+export type ITracks = {
+    name: string
+    duration: string
+    artist: object
+    album: string
     '@attr': {
         rank: string
-    },
-    artist: object
-    duration: string
-    name: string
-    streamable: object
+    }
+    playcount: string
     url: string
+}
+
+export type Track = {
+    name: string
+    duration: string
+    artist: object
+    album: string
+    '@attr': {
+        rank: string
+    }
+    playcount: string
+    url: string
+}
+
+export type Action = {
+    type: string
+    payload: Track
 }

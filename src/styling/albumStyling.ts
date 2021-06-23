@@ -73,7 +73,7 @@ const AlbumPlaycount = styled.p`
 
 const TrackList = styled.ul`
     width: 35%;
-    height: 60em;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -93,43 +93,6 @@ const TrackList = styled.ul`
     }
 `
 
-const Track = styled.li`
-    position: relative;
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    height: 4rem;
-    justify-content: space-between;
-
-    
-    &:after {
-        position: absolute;
-        content: "";
-        display: block;
-        margin: 0 auto;
-        width: 80%;
-        padding-top: 72px;
-        transform: translateX(13%);
-        border-bottom: 1px rgba(0, 0,0,.15) solid;
-    }
-`
-
-const TrackNumber = styled.span`
-    font-size: 3rem;
-    font-weight: bold;
-    color: steelblue;
-    margin-right: 2rem
-`
-
-const TrackName = styled.h2`
-
-`
-
-const TrackDuration = styled.span`
-    font-weight: 100;
-    font-size: 1.2rem;
-`
-
 const HomeLink = styled(Link)`
     color: steelblue;
     font-weight: bold;
@@ -143,13 +106,9 @@ export {
     AlbumImage, 
     AlbumName, 
     TrackList, 
-    Track, 
-    TrackNumber, 
-    TrackName, 
     HomeLink, 
     AlbumDate, 
     AlbumInfo, 
     InfoContainer, 
-    AlbumPlaycount,
-    TrackDuration
+    AlbumPlaycount
 }

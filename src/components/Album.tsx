@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 
+import TrackItem from './Track'
+
 import { IAlbum } from '../interface'
-import { fetchData, secondsToMinutes } from '../helpers/functions'
-import { AlbumSection, AlbumImage, AlbumName, TrackList, Track, TrackNumber, TrackName, HomeLink, AlbumInfo, AlbumDate, InfoContainer, AlbumPlaycount, TrackDuration } from '../styling/albumStyling'
+import { fetchData } from '../helpers/functions'
+import { AlbumSection, AlbumImage, AlbumName, TrackList,  HomeLink, AlbumInfo, AlbumDate, InfoContainer, AlbumPlaycount } from '../styling/albumStyling'
+import { FavouritesLink } from '../styling/headerStyling'
 
 const { REACT_APP_API_KEY } = process.env
 
@@ -32,11 +35,12 @@ const Album: React.FC<any> = ({ match }) => {
             })
     }, [album])
 
-    console.log(albumData)
     return (
         <div className="Album">
 
             <HomeLink to={`/`}>Home</HomeLink>
+            <FavouritesLink to={`/favourites`}>Favourites</FavouritesLink>
+
             {albumData ?
                 <React.Fragment>
                     <AlbumSection>
@@ -52,7 +56,7 @@ const Album: React.FC<any> = ({ match }) => {
                         <TrackList>
                             {albumData?.tracks?.track?.map((track, index) => {
                                 return (
-                                    <Track key={index}><TrackNumber>#{track['@attr'].rank}</TrackNumber><TrackName><TrackDuration>{secondsToMinutes(track.duration)} - </TrackDuration>{track.name}</TrackName></Track>
+                                    <TrackItem key={index} track={track} parent={'album'}/>
                                 )
                             })}
                         </TrackList>

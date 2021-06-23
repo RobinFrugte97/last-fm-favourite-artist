@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const ArtistImage = styled.img`
     position: fixed;
@@ -40,4 +41,12 @@ const FadeOverlay = styled.div`
     }
 `
 
-export { ArtistImage, ImageContainer, FadeOverlay }
+const FavouritesLink = styled(Link)`
+    color: steelblue;
+    font-weight: bold;
+    top: 1rem;
+    right: 1rem;
+    position: fixed;
+`
+
+export { ArtistImage, ImageContainer, FadeOverlay, FavouritesLink }

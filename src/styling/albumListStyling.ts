@@ -39,7 +39,10 @@ const AlbumCard = styled.section`
 `
 
 const AlbumListImage = styled.img`
-
+    transistion: .3s ease;
+    &:hover {
+        transform: scale(1.025);
+    }
 `
 
 const AlbumLink = styled(Link)`

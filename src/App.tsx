@@ -5,9 +5,7 @@ import { GlobalStyle } from './styling/globalStyling'
 import AlbumList from './components/AlbumList'
 import Album from './components/Album'
 import Header from './components/Header'
-
-
-
+import Favourites from './components/Favourites'
 
 const App = () => {
   return (
@@ -17,7 +15,8 @@ const App = () => {
         <React.Fragment>
           <Router>
             <Route exact path="/" component={AlbumList} />
-            <Route path="/:album" component={Album} />
+            <Route exact path="/favourites" component={Favourites} />
+            <Route path="/album/:album" component={Album} />
           </Router>
         </React.Fragment>
       </div>

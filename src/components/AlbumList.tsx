@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { IState as Props } from '../interface'
 import { fetchData } from '../helpers/functions'
 import { List, ArtistName, AlbumCard, AlbumListImage, AlbumLink, AlbumName } from '../styling/albumListStyling'
+import { FavouritesLink } from '../styling/headerStyling'
 
 const { REACT_APP_API_KEY } = process.env
 
@@ -27,16 +28,18 @@ const AlbumList: React.FC<Props> = () => {
         <div className="AlbumList">
             {artistData ?
                 <React.Fragment>
+                    <FavouritesLink to={`/favourites`}>Favourites</FavouritesLink>
+
                     <ArtistName>{artistData?.name}</ArtistName>
                     <List>
                         {artistData?.albums?.map((album, index) => {
                             return (
-                                <AlbumCard key={index}>
-                                    <AlbumListImage src={album.image[3]['#text']} alt="" />
-                                    <AlbumLink to={`/${album.name}`}>
+                                <AlbumLink key={index} to={`/album/${album.name}`}>
+                                    <AlbumCard>
+                                        <AlbumListImage src={album.image[3]['#text']} alt="" />
                                         <AlbumName>{album.name}</AlbumName>
-                                    </AlbumLink>
-                                </AlbumCard>
+                                    </AlbumCard>
+                                </AlbumLink>
                             )
                         })}
                     </List>
