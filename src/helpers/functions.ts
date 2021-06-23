@@ -20,7 +20,6 @@ const removeTrack = (state: Array<Track>, payload: Track) => {
         }
     })
     return newArr
-
 }
 
 const removeInitialstate = (favourites: Array<Track>) => {

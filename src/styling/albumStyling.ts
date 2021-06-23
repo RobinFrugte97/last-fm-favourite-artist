@@ -8,6 +8,8 @@ const AlbumSection = styled.section`
     margin-top: 24%;
     width: 100%;
     background-color: white;
+    min-height: 60em;
+
 
     @media (max-width: 1400px) {
         margin-top: 29%;
@@ -93,12 +95,26 @@ const TrackList = styled.ul`
     }
 `
 
+const NoTracks = styled.h1`
+    text-align: center;
+    font-size: 2rem;
+`
+
 const HomeLink = styled(Link)`
     color: steelblue;
     font-weight: bold;
     top: 1rem;
     left: 1rem;
     position: fixed;
+    font-size: 1.5rem;
+    background: white;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    z-index: 3;
+
+    &:hover {
+        text-decoration: underline;
+    }
 `
 
 export { 
@@ -110,5 +126,6 @@ export {
     AlbumDate, 
     AlbumInfo, 
     InfoContainer, 
-    AlbumPlaycount
+    AlbumPlaycount,
+    NoTracks
 }

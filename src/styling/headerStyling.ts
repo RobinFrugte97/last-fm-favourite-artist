@@ -47,6 +47,14 @@ const FavouritesLink = styled(Link)`
     top: 1rem;
     right: 1rem;
     position: fixed;
+    font-size: 1.5rem;
+    background: white;
+    padding: .5rem 1rem;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
 `
 
 export { ArtistImage, ImageContainer, FadeOverlay, FavouritesLink }

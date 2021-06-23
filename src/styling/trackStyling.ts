@@ -49,6 +49,14 @@ const TrackButton = styled.button`
     text-align: center;
     line-height: 1rem;
     padding-left: 8px;
+
+    &:hover {
+        transform: scale(1.1)
+    }
+
+    &:active {
+        transform: scale(.9)
+    }
 `
 
 const MinusButton = styled(TrackButton)`

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { IState as Props } from '../interface'
 import { fetchData } from '../helpers/functions'
 import { List, ArtistName, AlbumCard, AlbumListImage, AlbumLink, AlbumName } from '../styling/albumListStyling'
+import { NoTracks } from '../styling/albumStyling'
 import { FavouritesLink } from '../styling/headerStyling'
 
 const { REACT_APP_API_KEY } = process.env
@@ -45,7 +46,7 @@ const AlbumList: React.FC<Props> = () => {
                     </List>
                 </React.Fragment>
             :
-            <h1>Loading...</h1>
+            <NoTracks>Loading...</NoTracks>
         }
         </div>
         

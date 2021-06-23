@@ -7,6 +7,7 @@ import { actionCreators } from '../state'
 
 
 const TrackItem: React.FC<any> = ({ track, parent }) => {
+    console.log(track)
     const dispatch = useDispatch()
 
     const { addToFavourite, removeFromFavourite } = bindActionCreators(actionCreators, dispatch)
@@ -19,9 +20,9 @@ const TrackItem: React.FC<any> = ({ track, parent }) => {
                 {track.name}
             </TrackName>
             {parent === 'album' ?
-                <TrackButton onClick={async () => addToFavourite(track)}>+</TrackButton>
+                <TrackButton onClick={() => addToFavourite(track)}>+</TrackButton>
             :
-                <MinusButton onClick={async () => removeFromFavourite(track)}>-</MinusButton>
+                <MinusButton onClick={() => removeFromFavourite(track)}>-</MinusButton>
             }
         </Track>
     )

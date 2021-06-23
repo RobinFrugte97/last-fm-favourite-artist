@@ -4,7 +4,7 @@ import TrackItem from './Track'
 
 import { IAlbum } from '../interface'
 import { fetchData } from '../helpers/functions'
-import { AlbumSection, AlbumImage, AlbumName, TrackList,  HomeLink, AlbumInfo, AlbumDate, InfoContainer, AlbumPlaycount } from '../styling/albumStyling'
+import { AlbumSection, AlbumImage, AlbumName, TrackList, HomeLink, AlbumInfo, AlbumDate, InfoContainer, AlbumPlaycount, NoTracks } from '../styling/albumStyling'
 import { FavouritesLink } from '../styling/headerStyling'
 
 const { REACT_APP_API_KEY } = process.env
@@ -54,16 +54,21 @@ const Album: React.FC<any> = ({ match }) => {
 
                         </AlbumInfo>
                         <TrackList>
-                            {albumData?.tracks?.track?.map((track, index) => {
+                            {albumData.tracks.track.length > 1 ?
+                           
+                            albumData.tracks.track.map((track, index) => {
                                 return (
                                     <TrackItem key={index} track={track} parent={'album'}/>
                                 )
-                            })}
+                            })
+                            :
+                                <NoTracks>No tracks found</NoTracks>
+                            }
                         </TrackList>
                     </AlbumSection>
                 </React.Fragment>
                 :
-                <h1>Loading...</h1>
+                <NoTracks>Loading...</NoTracks>
             }
         </div>
     );
