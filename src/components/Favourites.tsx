@@ -5,7 +5,7 @@ import TrackItem from "./Track"
 
 import { State } from '../state'
 import { HomeLink, TrackList } from "../styling/albumStyling"
-import { FavouritesSection, FavouritesTitle } from "../styling/favouritesStyling"
+import { FavouritesSection, FavouritesTitle, AddFavourites } from "../styling/favouritesStyling"
 import { removeInitialstate } from "../helpers/functions"
 import { Track } from "../interface"
 
@@ -23,17 +23,18 @@ const Favourites: React.FC<any> = () => {
             <FavouritesSection>
                 <FavouritesTitle>Favourites</FavouritesTitle>
                 {favourites.length > 0 ?
-                <TrackList>
-                        {cleanFavourites?.map((track, index) => {
-                        return (
-                            <React.Fragment key={index}>
-                                <TrackItem  track={track} parent={'favourites'}/>
-                            </React.Fragment>
-                        )
-                    })}
-                </TrackList>
+                    <TrackList>
+                            {cleanFavourites?.map((track, index) => {
+                            return (
+                                <React.Fragment key={index}>
+                                    <TrackItem  track={track} parent={'favourites'}/>
+                                </React.Fragment>
+                            )
+                        })}
+                    </TrackList>
                 : 
-                <h2>Add tracks to your favourites..</h2>}
+                    <AddFavourites>Add tracks to your favourites..</AddFavourites>
+                }
             </FavouritesSection>
         </React.Fragment>
     )

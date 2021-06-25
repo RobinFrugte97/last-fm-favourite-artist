@@ -13,7 +13,6 @@ const secondsToMinutes = (stringTime: string) => {
 
 const removeTrack = (state: Array<Track>, payload: Track) => {
     const newArr = [...state]
-    console.log(state, payload)
     newArr.forEach((track, index: number) => {
         if (track.name.toLowerCase() === payload.name.toLowerCase()) {
             newArr.splice(index, index+1)
@@ -23,8 +22,6 @@ const removeTrack = (state: Array<Track>, payload: Track) => {
 }
 
 const removeInitialstate = (favourites: Array<Track>) => {
-    console.log(favourites)
-
     if (favourites[0].name === "") {
         favourites.shift()
         return favourites

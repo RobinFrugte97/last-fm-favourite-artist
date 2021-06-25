@@ -49,3 +49,8 @@
 - Redux
 - Responsive
 
+# Future features
+
+- Favourites page
+    - Search function
+    - Favourite albums

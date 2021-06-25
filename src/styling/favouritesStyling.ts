@@ -25,8 +25,12 @@ const FavouritesTitle = styled.h1`
     font-size: 2.5rem;
 `
 
+const AddFavourites = styled.h2`
+
+`
 
 export {
     FavouritesSection,
-    FavouritesTitle
+    FavouritesTitle,
+    AddFavourites
 }
