@@ -18,7 +18,7 @@ const Album: React.FC<any> = ({ match }) => {
     const [albumData, setAlbumData] = useState<IAlbum["album"]>()
 
     useEffect(() => {
-        fetchData(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${REACT_APP_API_KEY}&artist=erra&album=${album}&format=json`)
+        fetchData(`https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${REACT_APP_API_KEY}&artist=erra&album=${album}&format=json`)
             .then(data => {
                 setAlbumData({
                     artist: data.album.artist,

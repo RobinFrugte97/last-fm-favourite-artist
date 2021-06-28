@@ -14,7 +14,7 @@ const AlbumList: React.FC<Props> = () => {
 
     useEffect(() => {
         const gatherData = () => {
-            fetchData(`http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=erra&api_key=${REACT_APP_API_KEY}&format=json&limit=12`)
+            fetchData(`https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=erra&api_key=${REACT_APP_API_KEY}&format=json&limit=12`)
             .then(data => {
                 setArtistData({
                     name: data.topalbums["@attr"].artist,
