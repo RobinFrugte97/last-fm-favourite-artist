@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, BrowserRouter as Router } from "react-router-dom"
+import { Route, HashRouter as Router } from "react-router-dom"
 import { GlobalStyle } from './styling/globalStyling'
 
 import AlbumList from './components/AlbumList'
