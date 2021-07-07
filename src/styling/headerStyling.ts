@@ -5,12 +5,15 @@ const ArtistImage = styled.img`
     position: fixed;
     top: 0;
     right: 0;
-    width: 66%;
+    width: 33%;
     min-width: 20rem;
     z-index: -2;
 
     @media (max-width: 800px) {
         width: 100%;
+    }
+    @media (max-width: 1280px) {
+        width: 40%;
     }
 `
 
@@ -31,13 +34,16 @@ const FadeOverlay = styled.div`
     position: fixed;
     top: 0;
     right: 0;
-    width: 66%;
+    width: 33%;
     height: 100vh;
     min-width: 20rem;
     z-index: -1;
 
     @media (max-width: 800px) {
         width: 100%;
+    }
+    @media (max-width: 1280px) {
+        width: 40%;
     }
 `
 

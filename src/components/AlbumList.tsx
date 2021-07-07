@@ -6,6 +6,7 @@ import { List, ArtistName, AlbumCard, AlbumListImage, AlbumLink, AlbumName } fro
 import { NoTracks } from '../styling/albumStyling'
 import { FavouritesLink } from '../styling/headerStyling'
 
+
 const { REACT_APP_API_KEY } = process.env
 
 const AlbumList: React.FC<Props> = () => {
@@ -26,7 +27,7 @@ const AlbumList: React.FC<Props> = () => {
     }, [])
 
     return (
-        <div className="AlbumList">
+        <React.Fragment>
             {artistData ?
                 <React.Fragment>
                     <FavouritesLink to={`/favourites`}>Favourites</FavouritesLink>
@@ -48,7 +49,7 @@ const AlbumList: React.FC<Props> = () => {
             :
             <NoTracks>Loading...</NoTracks>
         }
-        </div>
+        </React.Fragment>
         
     )
 }

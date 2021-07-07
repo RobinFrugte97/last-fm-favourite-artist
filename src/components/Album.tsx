@@ -36,7 +36,7 @@ const Album: React.FC<any> = ({ match }) => {
     }, [album])
 
     return (
-        <div className="Album">
+        <React.Fragment>
 
             <HomeLink to={`/`}>Home</HomeLink>
             <FavouritesLink to={`/favourites`}>Favourites</FavouritesLink>
@@ -70,7 +70,7 @@ const Album: React.FC<any> = ({ match }) => {
                 :
                 <NoTracks>Loading...</NoTracks>
             }
-        </div>
+        </React.Fragment>
     );
 }
 

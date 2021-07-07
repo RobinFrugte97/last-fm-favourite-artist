@@ -1,4 +1,4 @@
-import { Track, Action } from "../../interface"
+import { Track, Action, UserSession, UserAction, HeaderAction } from "../../interface"
 import { Dispatch } from 'redux'
 
 
@@ -20,8 +20,28 @@ const removeFromFavourite = (track: Track) => {
     }
 }
 
+const userAuthenticated = (user: UserSession) => {
+    return (dispatch: Dispatch<UserAction>) => {
+        dispatch({
+            type: "add",
+            payload: user
+        })
+    }
+}
+
+const setHeaderImg = (img: string) => {
+    return (dispatch: Dispatch<HeaderAction>) => {
+        dispatch({
+            type: "set",
+            payload: img
+        })
+    }
+}
+
 
 export {
     addToFavourite,
-    removeFromFavourite
+    removeFromFavourite,
+    userAuthenticated,
+    setHeaderImg
 }

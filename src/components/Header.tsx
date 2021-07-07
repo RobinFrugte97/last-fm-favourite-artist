@@ -1,13 +1,19 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+
+import { State } from '../state'
 import { ArtistImage, ImageContainer, FadeOverlay } from '../styling/headerStyling'
 
 
 const Header: React.FC<any> = () => {
+
+    const headerImg: string = useSelector((state: State) => state.header)
+
     return (
         <React.Fragment>
             <ImageContainer>
                 <FadeOverlay />
-                <ArtistImage src="https://lastfm.freetls.fastly.net/i/u/770x0/8c3331277c4ca3af3b07555c59af920b.webp#8c3331277c4ca3af3b07555c59af920b" alt="" />
+                <ArtistImage src={headerImg} alt="" />
             </ImageContainer>
         </React.Fragment>
     )
